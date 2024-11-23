@@ -16,4 +16,5 @@ public interface AuthService {
     public void addNewUser(LoginRequestDTO request);
 
     public String getUserName() throws Exception;
+
 }
