@@ -211,13 +211,13 @@ public class BooksServiceImpl implements BooksService {
                     // updating requests table
                     transactionReqRepo.save(request);
 
-                     MailTemplates template =  emailService.getMailDetails(4);
+                    //  MailTemplates template =  emailService.getMailDetails(4);
 
-                    Map<String, Object> mailVariables = new HashMap();
-                    mailVariables.put("bookTitle", book.get().getTitle());
-                    // sending notification mail
-                    emailService.sendEmail(book.get().getUploadedBy(), template.getSubject(), template.getTemplatePath()
-                    , mailVariables);
+                    // Map<String, Object> mailVariables = new HashMap();
+                    // mailVariables.put("bookTitle", book.get().getTitle());
+                    // // sending notification mail
+                    // emailService.sendEmail(book.get().getUploadedBy(), template.getSubject(), template.getTemplatePath()
+                    // , mailVariables);
                 
                 }else{
                     // invalid book id
@@ -370,10 +370,10 @@ public class BooksServiceImpl implements BooksService {
                              toAddress = book.get().getUploadedBy();
                         }
                         
-                    Map<String, Object> mailVariables = new HashMap();
-                    // sending notification mail
-                    emailService.sendEmail(toAddress, template.getSubject(), template.getTemplatePath()
-                    , mailVariables);
+                    // Map<String, Object> mailVariables = new HashMap();
+                    // // sending notification mail
+                    // emailService.sendEmail(toAddress, template.getSubject(), template.getTemplatePath()
+                    // , mailVariables);
 
                     }else{
                         throw new Error("Invalid status id");
